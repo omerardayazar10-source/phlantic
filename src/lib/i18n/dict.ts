@@ -210,6 +210,10 @@ export const dict = {
     },
     cardCta: { tr: "Görüşme Planla", en: "Book a Call" },
     cardMeta: { tr: "15 dakika · Ücretsiz · Türkçe / İngilizce", en: "15 minutes · Free · English / Turkish" },
+    recordingNotice: {
+      tr: "Görüşmeler hizmet kalitesi gereği kayıt altına alınabilir.",
+      en: "Sessions may be recorded for quality assurance purposes.",
+    },
   },
 
   footer: {

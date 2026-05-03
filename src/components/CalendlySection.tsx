@@ -88,6 +88,9 @@ export function CalendlySection() {
               <p className="mt-4 text-sm text-on-surface-variant">
                 {t.contact.cardMeta}
               </p>
+              <p className="mt-2 text-xs text-on-surface-variant/60">
+                {t.contact.recordingNotice}
+              </p>
             </div>
           </div>
         </div>
