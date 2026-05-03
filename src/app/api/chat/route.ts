@@ -117,7 +117,7 @@ export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json();
 
   const result = streamText({
-    model: anthropic("claude-sonnet-4-6"),
+    model: anthropic("claude-haiku-4-5-20251001"),
     system: PHLANTIC_SYSTEM_PROMPT,
     messages: await convertToModelMessages(messages),
   });
