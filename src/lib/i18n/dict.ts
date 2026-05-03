@@ -182,8 +182,8 @@ export const dict = {
   contact: {
     eyebrow: { tr: "İletişim", en: "Contact" },
     heading: {
-      tr: "30 dakikada operasyonel haritanızı çıkaralım.",
-      en: "Map your operation with us in 30 minutes.",
+      tr: "15 dakikada operasyonel haritanızı çıkaralım.",
+      en: "Map your operation with us in 15 minutes.",
     },
     description: {
       tr: "Süreçlerinizdeki en pahalı darboğazları belirleyip, hangi otomasyonun kar marjınıza ne kadar etki edeceğini birlikte konuşalım. Görüşme ücretsizdir; satış değil, teşhis odaklıdır.",
@@ -209,7 +209,7 @@ export const dict = {
       en: "Click Book a Call and Calendly opens centered on this page. Pick a slot — we'll handle the rest.",
     },
     cardCta: { tr: "Görüşme Planla", en: "Book a Call" },
-    cardMeta: { tr: "30 dakika · Ücretsiz · Türkçe / İngilizce", en: "30 minutes · Free · English / Turkish" },
+    cardMeta: { tr: "15 dakika · Ücretsiz · Türkçe / İngilizce", en: "15 minutes · Free · English / Turkish" },
   },
 
   footer: {
