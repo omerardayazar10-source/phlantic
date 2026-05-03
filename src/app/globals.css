@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Color tokens are stored as space-separated R G B triples so Tailwind can
+ * compose them with the `<alpha-value>` placeholder for opacity utilities
+ * (`bg-secondary/10`, `border-primary-container/40`, ...). Light values live
+ * on :root; the .dark scope (set by next-themes) swaps them at runtime.
+ */
+@layer base {
+  :root {
+    /* Surfaces */
+    --c-background: 249 249 249;
+    --c-surface: 249 249 249;
+    --c-surface-container-lowest: 255 255 255;
+    --c-surface-container-low: 243 243 243;
+    --c-surface-container: 238 238 238;
+    --c-surface-container-high: 232 232 232;
+    --c-surface-container-highest: 226 226 226;
+    --c-surface-variant: 226 226 226;
+    /* Foregrounds */
+    --c-on-background: 27 27 27;
+    --c-on-surface: 27 27 27;
+    --c-on-surface-variant: 93 63 61;
+    /* Outlines */
+    --c-outline: 146 111 108;
+    --c-outline-variant: 230 189 186;
+    /* Brand — red */
+    --c-primary: 193 20 40;
+    --c-on-primary: 255 255 255;
+    --c-primary-container: 224 20 40;
+    --c-on-primary-container: 255 255 255;
+    /* Brand — teal */
+    --c-secondary: 14 155 148;
+    --c-on-secondary: 255 255 255;
+    --c-secondary-container: 189 238 233;
+    --c-on-secondary-container: 5 89 84;
+    /* Brand — orange */
+    --c-tertiary: 217 114 8;
+    --c-on-tertiary: 255 255 255;
+    --c-tertiary-container: 240 128 16;
+    --c-on-tertiary-container: 255 255 255;
+    /* Status */
+    --c-error: 186 26 26;
+    --c-on-error: 255 255 255;
+    --c-error-container: 255 218 214;
+    --c-on-error-container: 147 0 10;
+    /* Inverse pair (rarely used but defined for completeness) */
+    --c-inverse-surface: 48 48 48;
+    --c-inverse-on-surface: 241 241 241;
+
+    /* Hero/bento gradient stops (referenced through Tailwind arbitrary values
+     * via <alpha-value> elsewhere; raw CSS uses these as plain rgb where
+     * needed). */
+    color-scheme: light;
+  }
+
+  .dark {
+    /* Surfaces — true blacks for premium SaaS feel */
+    --c-background: 10 10 10;
+    --c-surface: 10 10 10;
+    --c-surface-container-lowest: 20 20 22;
+    --c-surface-container-low: 24 24 25;
+    --c-surface-container: 29 29 31;
+    --c-surface-container-high: 34 34 38;
+    --c-surface-container-highest: 42 42 46;
+    --c-surface-variant: 42 42 46;
+    /* Foregrounds */
+    --c-on-background: 237 237 237;
+    --c-on-surface: 237 237 237;
+    --c-on-surface-variant: 168 168 176;
+    /* Outlines */
+    --c-outline: 90 90 96;
+    --c-outline-variant: 58 58 62;
+    /* Brand — red (brighter so it pops on black) */
+    --c-primary: 255 51 68;
+    --c-on-primary: 255 255 255;
+    --c-primary-container: 255 71 87;
+    --c-on-primary-container: 255 255 255;
+    /* Brand — teal (saturated) */
+    --c-secondary: 45 212 204;
+    --c-on-secondary: 10 10 10;
+    --c-secondary-container: 6 47 44;
+    --c-on-secondary-container: 168 239 233;
+    /* Brand — orange (brighter) */
+    --c-tertiary: 255 160 48;
+    --c-on-tertiary: 10 10 10;
+    --c-tertiary-container: 255 179 64;
+    --c-on-tertiary-container: 10 10 10;
+    /* Status */
+    --c-error: 255 90 90;
+    --c-on-error: 255 255 255;
+    --c-error-container: 90 16 16;
+    --c-on-error-container: 255 218 214;
+    /* Inverse pair */
+    --c-inverse-surface: 237 237 237;
+    --c-inverse-on-surface: 27 27 27;
+
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-on-background font-sans antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    @apply bg-primary-container text-on-primary-container;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight text-on-background;
+  }
+}
+
+@layer components {
+  .container-shell {
+    @apply mx-auto w-full max-w-container-max px-5 sm:px-8 lg:px-gutter;
+  }
+
+  .section-y {
+    @apply py-20 md:py-28 lg:py-section-padding;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded bg-primary-container px-6 py-3 text-base font-semibold text-on-primary-container shadow-ambient transition-all hover:-translate-y-0.5 hover:bg-primary hover:shadow-ambient-md active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded border border-surface-variant bg-surface-container-lowest px-6 py-3 text-base font-semibold text-on-surface shadow-ambient transition-all hover:-translate-y-0.5 hover:bg-surface-container hover:shadow-ambient-md active:translate-y-0;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-container-lowest px-3 py-1 text-label-caps uppercase text-on-surface-variant;
+  }
+
+  .card {
+    @apply rounded-lg bg-surface-container-lowest p-6 shadow-ambient transition-shadow duration-300 hover:shadow-ambient-md md:p-8;
+  }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .dark .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  }
+}
+
+/* Reserved space for the AI chatbot widget (bottom-right). */
+.chatbot-safe-area {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* react-calendly PopupModal — force the overlay above our chatbot (z-70) and
+ * sticky navbar (z-40). The library renders a `.calendly-overlay` wrapper
+ * portaled to <body>; we override its z-index to match our `popup` token. */
+.calendly-overlay {
+  z-index: 100 !important;
+}
